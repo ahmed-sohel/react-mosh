@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component{
 	state = {
-		count: 1,
+		count: 0,
 		tags: ['tag1', 'tag2', 'tag3']
 	}
 
@@ -13,14 +13,15 @@ class Counter extends Component{
 	// }
 	
 	
-	handleIncrement = () => {
-		console.log('Increment Clicked ', this);
+	handleIncrement = val => {
+		this.setState({count: this.state.count+val})
 	}
+
 	render(){
 		return (
 			<React.Fragment>
 				<span style={this.styles} className={this.getBadgeClasses()}>{this.formatCount()}</span>
-				<button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
+				<button onClick={() => this.handleIncrement(2)} className="btn btn-secondary btn-sm">Increment</button>
 				<ul>
 					{this.state.tags.map(tag => <li>{ tag }</li>)}
 				</ul>
