@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
 class Counter extends Component{
-	//for handling events if arrow function not work in future
-	// constructor(){
-	// 	super();
-	// 	this.handleIncrement = this.handleIncrement.bind(this);
-	// }
-
+	componentDidUpdate(prevProps, prevState){
+		console.log('prevprops', prevProps);
+		console.log('prevState', prevState);
+		if(prevProps.counter.value !== this.props.counter.value){
+			//Ajax call and get new data from the server
+		}
+	}
+	componentWillUnmount(){
+		console.log('Counter - Unmount');
+	}
 	render(){
 		return (
 			<React.Fragment>
